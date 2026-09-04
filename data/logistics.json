@@ -1,0 +1,43 @@
+{
+  "kpis": [
+    {"label":"Inbound today","value":"42 pallets","trend":"+8 vs. plan","icon":"↓"},
+    {"label":"Production readiness","value":"94.2%","trend":"3 orders at risk","icon":"✓","alert":true},
+    {"label":"Cold-chain compliance","value":"98.7%","trend":"1 exception open","icon":"❄"},
+    {"label":"Internal routes","value":"18 / 23","trend":"78% completed","icon":"↗"}
+  ],
+  "flow": [
+    {"label":"Gate","value":7,"detail":"trucks checked in"},
+    {"label":"Quality","value":3,"detail":"lots in inspection"},
+    {"label":"Putaway","value":11,"detail":"pallets pending"},
+    {"label":"Staging","value":6,"detail":"production orders"},
+    {"label":"Consumed","value":84,"detail":"batches today"}
+  ],
+  "alerts": [
+    {"severity":"critical","title":"Temperature deviation","detail":"Batch B-260904-17 · Frozen spinach · -14.2 °C"},
+    {"severity":"warning","title":"Ingredient shortage risk","detail":"Production order PO-46018 · 120 kg chicken breast"},
+    {"severity":"warning","title":"FEFO action required","detail":"Batch B-260826-04 expires in 2 days"},
+    {"severity":"warning","title":"Internal route delayed","detail":"Route IR-108 · Raw materials → Cook & Chill"}
+  ],
+  "production": [
+    {"order":"PO-46017","meal":"Vegetable lasagne","line":"Cook & Chill","portions":8400,"readiness":100},
+    {"order":"PO-46018","meal":"Chicken fricassee","line":"Cook & Chill","portions":6200,"readiness":82},
+    {"order":"PO-46019","meal":"Low-sodium potato stew","line":"Special Diet","portions":3100,"readiness":96},
+    {"order":"PO-46020","meal":"Wholegrain apple traybake","line":"Bakery","portions":4800,"readiness":100},
+    {"order":"PO-46021","meal":"Allergen-free vegetable curry","line":"Special Diet","portions":2700,"readiness":88}
+  ],
+  "zones": [
+    {"code":"FZ-A","name":"Frozen storage","temperature":"-21.4 °C","capacity":87,"state":"normal"},
+    {"code":"CH-B","name":"Chilled ingredients","temperature":"3.1 °C","capacity":73,"state":"normal"},
+    {"code":"QA-C","name":"Quality hold","temperature":"5.8 °C","capacity":41,"state":"warning"},
+    {"code":"FZ-D","name":"Frozen inbound","temperature":"-14.2 °C","capacity":66,"state":"critical"}
+  ],
+  "batches": [
+    {"priority":1,"batch":"B-260826-04","material":"Cream sauce base","zone":"CH-B-02-14","quantity":"480 kg","expires":"2026-09-06","supplier":"Molkerei West GmbH","received":"2026-08-26","meal":"Chicken fricassee","productionOrder":"PO-46018"},
+    {"priority":2,"batch":"B-260828-11","material":"Fresh carrots","zone":"CH-B-01-08","quantity":"760 kg","expires":"2026-09-07","supplier":"Münsterland Gemüse KG","received":"2026-08-28","meal":"Low-sodium potato stew","productionOrder":"PO-46019"},
+    {"priority":3,"batch":"B-260904-17","material":"Frozen spinach","zone":"FZ-D-03-02","quantity":"920 kg","expires":"2027-02-14","supplier":"NordFrost Produce GmbH","received":"2026-09-04","meal":"Vegetable lasagne","productionOrder":"PO-46017"},
+    {"priority":4,"batch":"B-260830-07","material":"Chicken breast","zone":"FZ-A-07-12","quantity":"640 kg","expires":"2026-10-18","supplier":"WestFood Protein GmbH","received":"2026-08-30","meal":"Chicken fricassee","productionOrder":"PO-46018"},
+    {"priority":5,"batch":"B-260901-22","material":"Potatoes","zone":"CH-B-04-09","quantity":"1300 kg","expires":"2026-09-12","supplier":"Heide Agrar eG","received":"2026-09-01","meal":"Low-sodium potato stew","productionOrder":"PO-46019"},
+    {"priority":6,"batch":"B-260902-09","material":"Apple pieces","zone":"FZ-A-03-18","quantity":"510 kg","expires":"2027-01-22","supplier":"Altes Land Früchte GmbH","received":"2026-09-02","meal":"Wholegrain apple traybake","productionOrder":"PO-46020"}
+  ]
+}
+
