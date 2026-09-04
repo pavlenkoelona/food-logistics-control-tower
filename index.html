@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SAP EWM-inspired food logistics control tower portfolio project.">
+  <title>FreshFlow Logistics Control Tower</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="FreshFlow home">
+      <span class="brand-mark">FF</span><span><strong>FreshFlow</strong><small>Logistics Control Tower</small></span>
+    </a>
+    <div class="system-state"><span class="pulse"></span> Live simulation · Rheine</div>
+    <button class="icon-button" id="themeButton" aria-label="Toggle colour theme">◐</button>
+  </header>
+
+  <div class="shell">
+    <nav class="sidebar" aria-label="Dashboard sections">
+      <button class="nav-button active" data-view="overview"><span>⌂</span> Overview</button>
+      <button class="nav-button" data-view="warehouse"><span>▦</span> Warehouse</button>
+      <button class="nav-button" data-view="traceability"><span>◎</span> Traceability</button>
+      <div class="sidebar-note">
+        <span class="sap-tag">SAP EWM inspired</span>
+        <p>Fictional portfolio data. No productive SAP connection.</p>
+      </div>
+    </nav>
+
+    <main>
+      <section class="view active" id="overview">
+        <div class="page-heading">
+          <div><p class="eyebrow">Monday · 04 September 2026</p><h1>Good morning, Logistics Team</h1><p>Material availability and cold-chain health for today's production.</p></div>
+          <button class="primary-button" id="simulateButton">Run inbound simulation</button>
+        </div>
+
+        <section class="kpi-grid" id="kpis" aria-label="Key performance indicators"></section>
+
+        <div class="dashboard-grid">
+          <section class="panel flow-panel">
+            <div class="panel-heading"><div><p class="eyebrow">Material flow</p><h2>Today's operational flow</h2></div><span class="updated">Updated now</span></div>
+            <div class="flow-track" id="flowTrack"></div>
+          </section>
+
+          <section class="panel alerts-panel">
+            <div class="panel-heading"><div><p class="eyebrow">Exceptions</p><h2>Action centre</h2></div><span class="count-badge" id="alertCount"></span></div>
+            <div id="alerts"></div>
+          </section>
+
+          <section class="panel production-panel">
+            <div class="panel-heading"><div><p class="eyebrow">Demand</p><h2>Production readiness</h2></div><select id="lineFilter" aria-label="Filter production line"><option value="all">All lines</option><option>Cook & Chill</option><option>Special Diet</option><option>Bakery</option></select></div>
+            <div class="production-list" id="productionList"></div>
+          </section>
+
+          <section class="panel waste-panel">
+            <div class="panel-heading"><div><p class="eyebrow">Sustainability</p><h2>FEFO impact</h2></div></div>
+            <div class="waste-visual"><div class="ring"><strong>18.4%</strong><span>less expiry risk</span></div><div class="waste-copy"><strong>€12,480</strong><span>stock value protected</span><p>Priority allocation of batches with the shortest remaining shelf life.</p></div></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="warehouse">
+        <div class="page-heading"><div><p class="eyebrow">Warehouse execution</p><h1>Cold storage map</h1><p>Capacity, batch risk and temperature status by zone.</p></div><div class="legend"><span><i class="ok"></i>Normal</span><span><i class="warn"></i>Attention</span><span><i class="risk"></i>Critical</span></div></div>
+        <section class="warehouse-layout" id="warehouseMap"></section>
+        <section class="panel table-panel">
+          <div class="panel-heading"><div><p class="eyebrow">FEFO queue</p><h2>Next batches to consume</h2></div><input id="batchSearch" type="search" placeholder="Search material or batch" aria-label="Search batches"></div>
+          <div class="table-scroll"><table><thead><tr><th>Priority</th><th>Batch</th><th>Material</th><th>Zone</th><th>Quantity</th><th>Expires</th><th>Action</th></tr></thead><tbody id="batchTable"></tbody></table></div>
+        </section>
+      </section>
+
+      <section class="view" id="traceability">
+        <div class="page-heading"><div><p class="eyebrow">Food safety</p><h1>One-click batch traceability</h1><p>Trace a raw-material batch from supplier receipt to finished meal.</p></div></div>
+        <div class="trace-layout">
+          <section class="panel trace-search">
+            <label for="traceSelect">Select inbound batch</label>
+            <select id="traceSelect"></select>
+            <button class="primary-button" id="traceButton">Trace batch</button>
+            <p class="helper">Demonstrates a rapid recall-impact analysis using SQL relationships.</p>
+          </section>
+          <section class="panel trace-result" id="traceResult"></section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+
